@@ -19,31 +19,23 @@ Vue.component('chat-form', require('./components/ChatForm.vue'));
 const app = new Vue({
     el: '#app',
     data: {
-        messages: [
-            {
-                message: 'Hey!',
-                user: 'John Doe'
-            },
-            {
-                message: 'Hello!',
-                user: 'Jane Doe'
-            }
-        ]
+        messages: []
     },
-    created: {
-        this.fetchMessages;
-    }
+    created() {
+        this.fetchMessages();
+    },
     methods: {
+        fetchMessages() {
+            axios.get('/messages').then(response => {
+                this.messages = response.data;
+            });
+        },
         addMessage(message) {
             this.messages.push(message);
             // persist to database
-        },
-        fetchMessages() {
-            axios.get('/messages')
-                .then(response => {
-                    this.messages = response;
-                })
-                .catch();
+            axios.post('/messages', message).then(response => {
+                
+            });
         }
     }
 });
