@@ -42,7 +42,7 @@ import Echo from "laravel-echo"
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: window.Laravel.pusherKey
-    'cluster' => 'eu',
-    'encrypted' => true
+    key: '5e5777424c9b8ca9039d',
+    cluster: 'eu',
+    encrypted: true
 });

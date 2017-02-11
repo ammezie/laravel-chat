@@ -13,8 +13,37 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('chat-messages', require('./components/ChatMessages.vue'));
+Vue.component('chat-form', require('./components/ChatForm.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        messages: [
+            {
+                message: 'Hey!',
+                user: 'John Doe'
+            },
+            {
+                message: 'Hello!',
+                user: 'Jane Doe'
+            }
+        ]
+    },
+    created: {
+        this.fetchMessages;
+    }
+    methods: {
+        addMessage(message) {
+            this.messages.push(message);
+            // persist to database
+        },
+        fetchMessages() {
+            axios.get('/messages')
+                .then(response => {
+                    this.messages = response;
+                })
+                .catch();
+        }
+    }
 });
