@@ -23,6 +23,14 @@ const app = new Vue({
     },
     created() {
         this.fetchMessages();
+
+        Echo.private('chat')
+            .listen('MessageSent', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+            });
     },
     methods: {
         fetchMessages() {
@@ -32,10 +40,8 @@ const app = new Vue({
         },
         addMessage(message) {
             this.messages.push(message);
-            // persist to database
-            axios.post('/messages', message).then(response => {
-                
-            });
+
+            axios.post('/messages', message).then(response => {});
         }
     }
 });

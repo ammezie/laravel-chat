@@ -6,9 +6,6 @@
                     <strong class="primary-font">
                         {{ message.user.name }}
                     </strong>
-                    <small class="pull-right text-muted">
-                        <span class="glyphicon glyphicon-time"></span>12 mins ago
-                    </small>
                 </div>
                 <p>
                     {{ message.message }}

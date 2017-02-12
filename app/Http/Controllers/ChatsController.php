@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use App\Events\MessageSent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,13 +39,21 @@ class ChatsController extends Controller
         return Message::with('user')->get();
     }
 
+    /**
+     * Persist message to database
+     *
+     * @param  Request $request
+     * @return Response
+     */
     public function sendMessage(Request $request)
     {
         $user = Auth::user();
 
-        $user->messages()->create([
+        $message = $user->messages()->create([
             'message' => $request->input('message')
         ]);
+
+        broadcast(new MessageSent($user, $message))->toOthers();
 
         return ['status' => 'OK'];
     }
