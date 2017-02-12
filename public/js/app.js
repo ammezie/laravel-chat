@@ -11251,13 +11251,16 @@ __webpack_require__(33);
  */
 
 Vue.component('chat-messages', __webpack_require__(39));
+Vue.component('message', __webpack_require__(54));
 Vue.component('chat-form', __webpack_require__(38));
 
 var app = new Vue({
     el: '#app',
+
     data: {
         messages: []
     },
+
     created: function created() {
         var _this = this;
 
@@ -11270,6 +11273,7 @@ var app = new Vue({
             });
         });
     },
+
 
     methods: {
         fetchMessages: function fetchMessages() {
@@ -12181,17 +12185,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -36769,15 +36762,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('ul', {
     staticClass: "chat"
   }, _vm._l((_vm.messages), function(message) {
-    return _c('li', {
-      staticClass: "left clearfix"
-    }, [_c('div', {
-      staticClass: "chat-body clearfix"
-    }, [_c('div', {
-      staticClass: "header"
-    }, [_c('strong', {
-      staticClass: "primary-font"
-    }, [_vm._v("\n                    " + _vm._s(message.user.name) + "\n                ")])]), _vm._v(" "), _c('p', [_vm._v("\n                " + _vm._s(message.message) + "\n            ")])])])
+    return _c('message', {
+      attrs: {
+        "message": message
+      }
+    })
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -45399,6 +45388,99 @@ module.exports = function(module) {
 __webpack_require__(11);
 module.exports = __webpack_require__(12);
 
+
+/***/ }),
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+  props: ['message', 'authUserID']
+};
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(9)(
+  /* script */
+  __webpack_require__(53),
+  /* template */
+  __webpack_require__(55),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/mezie/workspace/lara-projects/laravel-chat/resources/assets/js/components/Message.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Message.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f0aef912", Component.options)
+  } else {
+    hotAPI.reload("data-v-f0aef912", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', [_c('li', {
+    staticClass: "left clearfix"
+  }, [_c('div', {
+    staticClass: "chat-body clearfix"
+  }, [_c('div', {
+    staticClass: "header"
+  }, [_c('strong', {
+    staticClass: "primary-font"
+  }, [_vm._v("\n                    " + _vm._s(_vm.message.user.name) + "\n                ")])]), _vm._v(" "), _c('p', [_vm._v("\n                " + _vm._s(_vm.message.message) + "\n            ")])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-f0aef912", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
