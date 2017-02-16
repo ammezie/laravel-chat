@@ -12258,7 +12258,7 @@ window.axios.defaults.headers.common = {
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: '5e5777424c9b8ca9039d',
+  key: Laravel.pusherKey,
   cluster: 'eu',
   encrypted: true
 });
