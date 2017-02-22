@@ -63,7 +63,7 @@ Also, remember to fill in the `cluster` of your Pusher app and other additional 
 Be sure to fill in your database details in your `.env` file before running the migrations:
 
 ```
-php artisan migration
+php artisan migrate
 ```
 
 And finally, start the application:
