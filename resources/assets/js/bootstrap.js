@@ -1,8 +1,6 @@
 import Pusher from "pusher-js";
 import Echo from "laravel-echo";
 
-window._ = require('lodash');
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -10,13 +8,11 @@ window._ = require('lodash');
  */
 
 try {
+    window._ = require('lodash');
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
-
     window.Pusher = require('pusher-js');
-
     require('bootstrap-sass');
-    // require('bootstrap');
 } catch (e) {}
 
 /**

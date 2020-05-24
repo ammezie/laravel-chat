@@ -13,13 +13,11 @@
 <script>
     export default {
         props: ['user'],
-
         data() {
             return {
                 newMessage: ''
             }
         },
-
         methods: {
             sendMessage() {
                 this.$emit('messagesent', {

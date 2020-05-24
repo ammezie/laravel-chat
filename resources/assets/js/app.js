@@ -20,24 +20,25 @@ Vue.component('chat-form', require('./components/ChatForm.vue').default);
 
 const app = new Vue({
     el: '#app',
-
     data: {
         messages: []
     },
-
-    created() {
-        this.fetchMessages();
-
-        Echo.private('chat')
-            .listen('MessageSent', (e) => {
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
-            });
+    mounted() {
+        if (window.Laravel.user) {
+            this.fetchMessages();
+            this.startListening();
+        }
     },
-
     methods: {
+        startListening() {
+            Echo.private('chat')
+                .listen('MessageSent', (e) => {
+                    this.messages.push({
+                        message: e.message.message,
+                        user: e.user
+                    });
+                });
+        },
         fetchMessages() {
             axios.get('/messages').then(response => {
                 this.messages = response.data;
@@ -45,7 +46,6 @@ const app = new Vue({
         },
         addMessage(message) {
             this.messages.push(message);
-
             axios.post('/messages', message).then(response => {});
         }
     }
