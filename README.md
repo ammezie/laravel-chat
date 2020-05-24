@@ -1,4 +1,4 @@
-# laravel-chat
+# Laravel Chat
 
 Build a chat app with Laravel, Vue.js and Pusher. Follow the tutorial [https://pusher.com/tutorials/chat-laravel](https://pusher.com/tutorials/chat-laravel)
 
@@ -64,8 +64,11 @@ And finally, start the application:
 ```bash
 php artisan serve
 ```
-
 and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action.
+
+You can also compile install and compile the assets for server use with:
+1. `npm install`
+2. `npm run dev` or `npm run production`
 
 ## Built With
 
