@@ -12259,7 +12259,7 @@ window.axios.defaults.headers.common = {
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
   key: Laravel.pusherKey,
-  cluster: 'eu',
+  cluster: Laravel.pusherCluster,
   encrypted: true
 });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
